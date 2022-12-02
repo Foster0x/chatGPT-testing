@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Uniswap Clone</title>
+  <title>ChatGPT Testing</title>
 </head>
 <body>
   <h1>Uniswap Clone</h1>
@@ -34,43 +34,10 @@
     // Call the getTradingPairs function when the page loads
     getTradingPairs();
   </script>
-</body>
-</html>
-<html>
-<head>
-  <title>Uniswap Clone</title>
-</head>
-<body>
-  <h1>Uniswap Clone</h1>
 
-  <h2>Trading Pairs</h2>
-  <ul id="pairs">
-    <!-- trading pairs will be added here by the JavaScript code -->
-  </ul>
+<h1>My Website with an Embedded YouTube Video</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XYZ autoplay=1" frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  <script>
-    // API URL for getting trading pairs
-    const API_URL = "https://example.com/api/pairs";
-
-    // Function to fetch trading pairs and add them to the page
-    function getTradingPairs() {
-      fetch(API_URL)
-        .then(response => response.json())
-        .then(data => {
-          // Get the list of pairs
-          const pairsList = document.getElementById("pairs");
-
-          // Add each pair to the list
-          data.forEach(pair => {
-            const item = document.createElement("li");
-            item.innerText = `${pair.token1}/${pair.token2}`;
-            pairsList.appendChild(item);
-          });
-        });
-    }
-
-    // Call the getTradingPairs function when the page loads
-    getTradingPairs();
-  </script>
 </body>
 </html>
