@@ -1,0 +1,215 @@
+{layout="Main/.layout"}
+{exp:channel:entries channel="pages" limit="1"}
+{layout:set name="title"}{if pages_alternate_title}{pages_alternate_title}{if:else}{title}{/if}{/layout:set}
+{layout:set name="description"}{pages_page_description}{/layout:set}
+{layout:set name="image"}{pages_alternate_image}{/layout:set}
+{!-- If Keywords are needed, create a new channel field and uncomment the area below with the correct field name --}
+{!-- {layout:set name="keywords"}{page_keywords}{/layout:set} --}
+{if subpage_header_image !=""} 
+<section class="subpage-header" style="background: url('{subpage_header_image}');">
+  <div class="container">
+    <div class="sub-title">
+      <h1>{title}</h1>
+    </div>
+  </div>
+</section>
+{if:else}
+<section class="subpage-header" style="background: url('/assets/images/Spring-130.png');">
+  <div class="container">
+    <div class="sub-title">
+      <h1>{title}</h1>
+    </div>
+  </div>
+</section>
+{/if}  
+<section class="bc_section">
+    <div class="container">
+        <ul class="breadcrumb">
+            {exp:structure:breadcrumb wrap_each="li" here_as_title="yes" separator=""}
+        </ul>
+    </div>
+</section>
+<section class="subpage-content">
+  <div class="container">
+    <div class="blog-main">
+      <div class="blog-post"> 
+        
+      {content_blocks}
+      <!-- Start Fluid Fields -->  
+
+        {content_blocks:iframe_embed}
+          <iframe width="100%" height="515" src="https://www.youtube.com/embed/{content}{content:iframe_embed} {/content}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+        {/content_blocks:iframe_embed}
+        
+        {content_blocks:full_iframe_embed}
+          {content}
+            {content:full_iframe_embed}                 
+          {/content}
+        {/content_blocks:full_iframe_embed}
+                
+        {content_blocks:col_img_content} 
+          {content}
+          <div class="row col-img-content">
+            <div class="col-sm-2">
+              <img src="{content:image_left}" alt="">
+            </div>
+            <div class="col-sm-10">
+              {content:content_right}
+            </div>
+          </div>  
+          {/content}
+        {/content_blocks:col_img_content}
+
+        {content_blocks:featured_section_block}
+          {content}
+          <div class="row featured-section-block">
+            <div class="col-md-4">
+              <div class="feat-img-block" style="background: url('{content:featured_image}'); {content:style}"></div>
+            </div>
+            <div class="col-md-8">
+              {content:featured_section_text}
+            </div>
+          </div>
+          {/content}
+        {/content_blocks:featured_section_block}
+
+        {content_blocks:column_image}
+          {content}
+          <div class="row column-image-row">
+            <div class="col-sm-8">
+              <img src="{content:image}" class="img-responsive col-res-img" alt="">
+              {content:text_content}
+            </div>
+            <div class="col-sm-4">
+              <img src="{content:image}" class="img-responsive" alt="{alt_text}">
+            </div>
+          </div>
+          {/content}
+        {/content_blocks:column_image}
+
+        {content_blocks:pdf_list}
+        <ul>
+          {content}          
+            <li><a href="{content:file}" target="blank">{content:pdf_title}</a></li>                   
+          {/content}
+        </ul> 
+        {/content_blocks:pdf_list}
+
+        {content_blocks:job_app}
+          {content}
+          <div class="job-application">
+            <div class="j-desc">
+              {content:job_desc}
+            </div>
+            <a href="{content:pdf_upload}" class="job-app-upload" target="blank">Read more</a>
+            <img src="/assets/logos/COH_PMS.png" style="position: absolute; right: 0;" alt="">
+          </div>
+          {/content}
+        {/content_blocks:job_app}
+
+        {content_blocks:two_even_columns}
+          {content}
+          <div class="row">
+            <div class="col-md-6">
+              {content:column_left}
+            </div>
+            <div class="col-md-6">
+              {content:column_right}
+            </div>
+          </div>
+          {/content}
+        {/content_blocks:two_even_columns}
+        {content_blocks:h2_header_left} 
+          <h2 class="sub-section-header-title">{content}{h2_header_left}{/content}</h2>
+        {/content_blocks:h2_header_left}
+        {content_blocks:header_2}
+          <h2 class="text-center sub-section-header-title">{content}{header_2}{/content}</h2>
+        {/content_blocks:header_2}
+
+        {content_blocks:text_content}
+          {content}
+            {text_content}
+          {/content}
+        {/content_blocks:text_content}
+
+        {content_blocks:text_content_formatting}
+          <div class="special_formatting">
+          {content}
+            {text_content_formatting}
+          {/content}
+          </div>
+        {/content_blocks:text_content_formatting}
+
+        {content_blocks:text_content_center}
+          <div class="text-center text_content_centered">
+          {content}
+            {text_content_center}
+          {/content}
+          </div>
+        {/content_blocks:text_content_center}
+
+        {content_blocks:expanding_section}
+          {content}
+          <div class="faq-block">
+            <h2 class="btn faq">{content:title}<i class="fa fa-plus" aria-hidden="true"></i></h2>
+            <div class="faq-panel">
+                {content:content}
+            </div>
+          </div>
+          {/content}
+        {/content_blocks:expanding_section}
+
+        {content_blocks:photo_gallery}
+        <div class="before-footer news-slider pages-carousel">
+          <div class="pages-mini-inner">
+            <div class="owl-carousel subpage-slider owl-theme photo-gallery">
+              {content}
+              <a href="{content:file}" data-lightbox="roadtrip">
+                <div class="item"><img src="{content:file}" class="lb-img" alt="{content:image_description}"></div>                
+              </a>
+              {/content}
+            </div>
+          </div>
+        </div>
+        {/content_blocks:photo_gallery}
+
+        {content_blocks:image_block}
+        <div class="image-block">
+          <div class="row">
+            {content}
+            <div class="col-sm-4">
+              <a href="{content:image}" data-lightbox="roadtrip">
+                <div class="item"><img src="{content:image}" class="lb-img img-responsive" alt=""></div>
+              </a>
+            </div>
+            {/content}
+          </div>
+        </div>
+        {/content_blocks:image_block}
+
+        {content_blocks:video_input}
+        <div class="embed-responsive embed-responsive-16by9 yt-embed">
+          {content}
+            {video_input}
+          {/content}
+        </div>
+        {/content_blocks:video_input}
+
+        
+      <!-- /. End Fluid Fields -->
+      {/content_blocks}                  
+      </div>
+    </div>
+    {if redirect_embed}
+      {embed="/redirects/.{redirect_embed}"}
+    {/if}
+    {if include}
+      {embed="includes/.{include}"}
+    {/if}
+    <div class="forms-container form-group">
+      {exp:forms:form form_name="{form}" return="/city-government/employment-opportunities/thank-you" queue_js="yes"}
+    </div>
+    </div><!-- /.row -->
+  </div>   
+</section>
+{/exp:channel:entries}
